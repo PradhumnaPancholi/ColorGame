@@ -6,7 +6,7 @@ var colors = [
     "rgb(0, 0, 255)",
     "rgb(255, 0, 255)",
 ]
-//selescting square div(s)
+//selecting square div(s)
 var square = document.querySelectorAll(".square");
 //variable for selected color
 var pickedColor = pickColor();
@@ -50,7 +50,10 @@ function changeColor(color){
 
 //function to pick random color
 function pickColor(){
-    Math.random()
+    //generates a random number//
+    var random = Math.floor(Math.random() * colors.length);
+    //accessing the number from array//
+    return colors[random];
 }
    
-} 
+}
