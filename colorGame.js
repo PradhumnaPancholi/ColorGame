@@ -7,6 +7,8 @@ var pickedColor =  pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 //for maniupilation of display board//
 var messageDisplay = document.getElementById("message");
+var h1 = document.querySelector("h1");
+
 
 //manuplating picked color in header
 colorDisplay.textContent = pickedColor; 
@@ -24,6 +26,7 @@ for (var i = 0;  i < square.length; i++){
         if(clickedColor === pickedColor){
             messageDisplay.textContent = "Correct";
             changeColor(clickedColor);
+            h1.style.backgroundColor = clickedColor;
         }else{
             //behavious for wrong answer//
             this.style.backgroundColor = "#232323";
@@ -49,4 +52,31 @@ function pickColor(){
     //accessing the number from array//
     return colors[random];
 }
+
+//function to generate random colors//
+function generateRandoomColors(num){
+    //make an array//
+    var arr = []
+    //add num of random colors to array arr//
+    for(var i =0; i < num; i++){
+        randomColor();
+        //get random num and push into array//
+        arr.push(randomColor());
+    }
+    //return that array//
+    return arr;
+}
+
+function randomColor(){
+    //pick "red" from 0-255//
+    var r = Math.floor(Math.random() * 256);
+    //pick "green" from 0-255//
+    var g = Math.floor(Math.random() * 256);
+    //pick "blue" from 0-255//
+    var b = Math.floor(Math.random() * 256);
+
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+}
+
+
    
