@@ -8,8 +8,22 @@ var colorDisplay = document.getElementById("colorDisplay");
 //for maniupilation of display board//
 var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
+var resetButton = document.getElementById("reset");
 
+resetButton.addEventListener("click", function(){
+    //generate new color//
+    colors = generateRandoomColors(6);
+    // pick a new random color//
+    pickedColor =  pickColor();
+    //change color display to match picked color//
+    colorDisplay.textContent = pickedColor;
+    //change colors of square//
+     for (var i = 0;  i < square.length; i++){
+    square[i].style.backgroundColor = colors[i]; 
+     }
+     h1.style.backgroundColor = "#232323";
 
+});
 //manuplating picked color in header
 colorDisplay.textContent = pickedColor; 
 
@@ -27,6 +41,7 @@ for (var i = 0;  i < square.length; i++){
             messageDisplay.textContent = "Correct";
             changeColor(clickedColor);
             h1.style.backgroundColor = clickedColor;
+            resetButton.textContent = "Play Again";
         }else{
             //behavious for wrong answer//
             this.style.backgroundColor = "#232323";
