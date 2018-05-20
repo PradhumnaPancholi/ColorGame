@@ -1,15 +1,8 @@
-var colors = [
-    "rgb(255, 0, 0)",
-    "rgb(255, 255, 0)",
-    "rgb(0, 255, 0)",
-    "rgb(0, 255, 255)",
-    "rgb(0, 0, 255)",
-    "rgb(255, 0, 255)",
-]
+var colors = generateRandoomColors(6);
 //selecting square div(s)
 var square = document.querySelectorAll(".square");
 //variable for selected color
-var pickedColor = pickColor();
+var pickedColor =  pickColor();
 //var to change picked color(question) in header
 var colorDisplay = document.getElementById("colorDisplay");
 //for maniupilation of display board//
@@ -38,6 +31,7 @@ for (var i = 0;  i < square.length; i++){
         }
 
     });
+}
 
 //function for the behaviour on correct answer//
 function changeColor(color){
@@ -56,4 +50,3 @@ function pickColor(){
     return colors[random];
 }
    
-}
